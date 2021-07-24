@@ -8,4 +8,8 @@ defmodule Rapidfy do
   def get_callback_url do
     Application.get_env(:rapidfy, :callback_url) |> URI.encode_www_form()
   end
+
+  def creds do
+    :base64.encode("#{client_id()}:#{client_secret()}")
+  end
 end
