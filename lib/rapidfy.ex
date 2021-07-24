@@ -1,18 +1,11 @@
 defmodule Rapidfy do
-  @moduledoc """
-  Documentation for `Rapidfy`.
-  """
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  def client_id, do: Application.get_env(:rapidfy, :client_id)
+  def client_secret, do: Application.get_env(:rapidfy, :secret)
+  def user_id, do: Application.get_env(:rapidfy, :user_id)
 
-  ## Examples
-
-      iex> Rapidfy.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def get_callback_url do
+    Application.get_env(:rapidfy, :callback_url) |> URI.encode_www_form()
   end
 end
