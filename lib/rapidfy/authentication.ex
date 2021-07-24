@@ -41,4 +41,21 @@ defmodule Rapidfy.Authentication do
     ]
   end
 
+  @doc false
+  def auth_type() do
+
+  end
+
+  @doc """
+  Verifies or authenticates user on callback.
+
+  ## Example: ##
+      Rapidfy.verify(code)
+      # {:ok, credentials}
+
+  """
+  def verify(code) do
+
+  end
+
 end
