@@ -4,4 +4,7 @@ defmodule Rapidfy.Track do
 
   Provides functions and structures for spotify tracks.
   """
+
+  defstruct ~w[ ]a
+
 end

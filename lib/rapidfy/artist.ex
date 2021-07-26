@@ -4,4 +4,9 @@ defmodule Rapidfy.Artist do
 
   Provides functions and structures for spotify artists.
   """
+
+  defstruct ~w[
+
+  ]a
+
 end

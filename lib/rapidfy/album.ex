@@ -4,4 +4,10 @@ defmodule Rapidfy.Album do
 
   Provides functions and structures for spotify albums.
   """
+
+  defstruct ~w[
+
+  ]a
+
+
 end
