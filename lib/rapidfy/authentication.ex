@@ -69,12 +69,12 @@ defmodule Rapidfy.Authentication do
   Refreshes a users access token
 
   ## Example: ##
-    Rapidfy.refresh()
-    # {:ok}
+      Rapidfy.refresh(%Credentials{refresh_token: "..."})
+      # {:ok, credentials}
 
   """
-  def refresh() do
-
+  def refresh(creds) do
+    creds |> auth_type() |> auth_post()
   end
 
 end
