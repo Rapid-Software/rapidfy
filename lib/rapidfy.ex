@@ -12,4 +12,8 @@ defmodule Rapidfy do
   def creds do
     :base64.encode("#{client_id()}:#{client_secret()}")
   end
+
+  def handle_response(response, type) do
+    Poison.decode!(response, as: type)
+  end
 end

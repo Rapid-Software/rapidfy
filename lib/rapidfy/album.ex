@@ -5,6 +5,13 @@ defmodule Rapidfy.Album do
   Provides functions and structures for spotify albums.
   """
 
+  @url "https://api.spotify.com/v1/albums"
+
+  alias Rapidfy.{
+    Album,
+    Client
+  }
+
   defstruct ~w[
     album_type
     artists
@@ -26,5 +33,22 @@ defmodule Rapidfy.Album do
     uri
   ]a
 
+  def get_album(id, creds) do
+    url = id |> get_album_url()
+    Client.get(creds, url) |> Rapidfy.handle_response(%Album{})
+  end
+
+  def get_album_url(id) do
+    "#{@url}/#{id}"
+  end
+
+  def get_albums(ids, creds) do # untested
+    url = ids |> get_albums_url()
+    Client.get(creds, url) |> Rapidfy.handle_response(%{"albums" => [%Album{}]})
+  end
+
+  def get_albums_url(ids) do
+    "#{@url}/#{ids}"
+  end
 
 end
