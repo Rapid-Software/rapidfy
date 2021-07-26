@@ -61,13 +61,8 @@ defmodule Rapidfy.Authentication do
       # {:ok, credentials}
 
   """
-  def verify(%{"code" => code}) do
+  def verify(code) do
     auth_type(%Credentials{}, code) |> auth_post()
-  end
-
-  @doc false
-  def verify(_) do
-    raise("Error no code") # change to rapidfy error
   end
 
   @doc """
