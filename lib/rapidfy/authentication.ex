@@ -23,8 +23,8 @@ defmodule Rapidfy.Authentication do
           %{"error_description" => error} ->
             raise("#{error}")
 
-          _success_response ->
-            {:ok, nil}
+          success_response ->
+            {:ok, Credentials.res_to_creds(success_response)}
         end
       else
         {:error, %Error{reason: r}} ->
@@ -61,8 +61,13 @@ defmodule Rapidfy.Authentication do
       # {:ok, credentials}
 
   """
-  def verify(code) do
+  def verify(%{"code" => code}) do
+    auth_type(%Credentials{}, code) |> auth_post()
+  end
 
+  @doc false
+  def verify(_) do
+    raise("Error no code") # change to rapidfy error
   end
 
 end
