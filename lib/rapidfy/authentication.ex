@@ -70,4 +70,16 @@ defmodule Rapidfy.Authentication do
     raise("Error no code") # change to rapidfy error
   end
 
+  @doc """
+  Refreshes a users access token
+
+  ## Example: ##
+    Rapidfy.refresh()
+    # {:ok}
+
+  """
+  def refresh() do
+
+  end
+
 end
