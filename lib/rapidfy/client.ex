@@ -11,13 +11,21 @@ defmodule Rapidfy.Client do
 
   end
 
+  def post() do
+
+  end
+
+  def delete() do
+
+  end
+
   @doc false
   def get_h() do
 
   end
 
   @doc false
-  def put_h() do
+  def content_h() do
 
   end
 
