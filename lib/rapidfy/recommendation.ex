@@ -4,4 +4,9 @@ defmodule Rapidfy.Recommendation do
 
   Provides functions and structures for spotify recommendations.
   """
+
+  defstruct ~w[
+    seeds
+    tracks
+  ]a
 end

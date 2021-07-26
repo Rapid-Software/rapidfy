@@ -4,4 +4,21 @@ defmodule Rapidfy.Playlist do
 
   Provides functions and structures for spotify playlists.
   """
+
+  defstruct ~w[
+    collaborative
+    description
+    external_urls
+    followers
+    href
+    id
+    images
+    name
+    owner
+    public
+    snapshot_id
+    tracks
+    type
+    uri
+  ]a
 end
