@@ -13,6 +13,8 @@ defmodule Rapidfy.Authentication do
     Error
   }
 
+  alias Rapidfy.Credentials
+
   @doc false
   def auth_post(params) do
     with {:ok, %Response{status_code: _status, body: data}} <- HTTPoison.post(@url, params, auth_headers()),
@@ -42,8 +44,13 @@ defmodule Rapidfy.Authentication do
   end
 
   @doc false
-  def auth_type() do
+  def auth_type(%Credentials{refresh_token: r}) do
+    "grant_type=refresh_token&refresh_token=#{r}"
+  end
 
+  @doc false
+  def auth_type(%Credentials{refresh_token: nil}, code) do
+    "grant_type=authorization_code&code=#{code}&redirect_uri=#{Rapidfy.get_callback_url()}"
   end
 
   @doc """
