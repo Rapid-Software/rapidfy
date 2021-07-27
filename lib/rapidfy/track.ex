@@ -5,6 +5,13 @@ defmodule Rapidfy.Track do
   Provides functions and structures for spotify tracks.
   """
 
+  @url "https://api.spotify.com/v1/tracks"
+
+  alias Rapidfy.{
+    Track,
+    Client
+  }
+
   defstruct ~w[
     album
     artists
@@ -26,5 +33,19 @@ defmodule Rapidfy.Track do
     type
     uri
   ]a
+
+  def get_track(creds, id) do
+    url = get_track_url(id)
+    Client.get(creds, url) |> Rapidfy.handle_response(%Track{})
+  end
+
+  def get_tracks(creds, id) do
+    url = get_track_url(id)
+    Client.get(creds, url) |> Rapidfy.handle_response(%{"tracks" => [%Track{}]})
+  end
+
+  def get_track_url(id) do
+    "#{@url}/#{id}"
+  end
 
 end
